@@ -42,14 +42,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_fsgo4"]
 radius = 6.0
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="player" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_uduau")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -12)
 sprite_frames = SubResource("SpriteFrames_vu4fi")
 autoplay = "default"
-frame_progress = 0.920082
+frame_progress = 0.104074
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)

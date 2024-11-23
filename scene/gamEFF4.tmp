@@ -193,6 +193,15 @@ tile_set = SubResource("TileSet_uxtkn")
 format = 2
 layer_0/tile_data = PackedInt32Array(131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 65548, 0, 0, 65549, 0, 0, 13, 0, 0, 12, 0, 0, -65523, 0, 0, -65522, 0, 0, -131058, 0, 0, -65521, 0, 0, 15, 0, 0, 14, 0, 0, -131057, 0, 0, -196592, 0, 0, -196591, 0, 0, -262126, 0, 0, -327661, 0, 0, -327660, 0, 0, -327656, 0, 0, -327652, 0, 0, -327648, 0, 0, -327659, 589824, 0, -327655, 589824, 1, -327651, 589824, 0, -327658, 655360, 0, -327650, 655360, 0, -327654, 655360, 1, -327657, 720896, 0, -327649, 720896, 0, -327653, 720896, 1, 131115, 0, 1, 131116, 0, 1, 131117, 0, 1, 131118, 0, 1, 131119, 0, 1, 131120, 0, 1, 131125, 0, 1, 131126, 0, 1, 131127, 0, 1, 131128, 0, 1, 131129, 0, 1, 131124, 0, 1, 131123, 0, 1, 131122, 0, 1, 131121, 0, 1, 65547, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 0, 0, 131095, 0, 0, 131096, 0, 0, 131097, 0, 0, 131098, 0, 0, 131099, 0, 0, 131100, 0, 0, 131101, 0, 0, 131102, 0, 0, 131103, 0, 0, 131104, 0, 0, 131105, 0, 0, 131106, 0, 0, 131107, 0, 0, 131108, 0, 0, 131109, 0, 0, 131110, 0, 0, 131111, 0, 0, 131112, 0, 0, 131113, 0, 0, 131114, 0, 0)
 
+[node name="coin" parent="." instance=ExtResource("3_nutyw")]
+position = Vector2(328, 25)
+
+[node name="coin2" parent="." instance=ExtResource("3_nutyw")]
+position = Vector2(200, -7)
+
+[node name="coin3" parent="." instance=ExtResource("3_nutyw")]
+position = Vector2(296, -72)
+
 [node name="portal" parent="." instance=ExtResource("2_yojma")]
 position = Vector2(392, 21)
 
@@ -201,14 +210,3 @@ position = Vector2(392, 21)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(118, 67)
 shape = SubResource("WorldBoundaryShape2D_30ey1")
-
-[node name="coil" type="Node" parent="."]
-
-[node name="coin" parent="coil" instance=ExtResource("3_nutyw")]
-position = Vector2(330, 26)
-
-[node name="coin2" parent="coil" instance=ExtResource("3_nutyw")]
-position = Vector2(202, -6)
-
-[node name="coin3" parent="coil" instance=ExtResource("3_nutyw")]
-position = Vector2(298, -71)

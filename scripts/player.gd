@@ -1,9 +1,15 @@
 extends CharacterBody2D
 
 
-const SPEED = 70.0
-const JUMP_VELOCITY = -200.0
+const SPEED = 100.0
+const JUMP_VELOCITY = -250.0
 
+func _ready() -> void:
+	print("Player: Starting setup...")
+	add_to_group("player")
+	print("Player: Added to group 'player'")
+	print("Player: Current groups: ", get_groups())
+	print("Player: Position: ", global_position)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
