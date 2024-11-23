@@ -1,66 +1,55 @@
-[gd_scene load_steps=10 format=3 uid="uid://bfdclbnqmgaaa"]
+[gd_scene load_steps=9 format=3 uid="uid://bfdclbnqmgaaa"]
 
 [ext_resource type="Script" path="res://scripts/portal.gd" id="1_g43o2"]
 [ext_resource type="Texture2D" uid="uid://chctvm7uloq4o" path="res://assets/shadqow.png" id="2_wfafv"]
-[ext_resource type="PackedScene" uid="uid://dkejwrs141o0o" path="res://scene/killzone.tscn" id="3_kbeyv"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_kh2iy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ssc3n"]
 atlas = ExtResource("2_wfafv")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_4rbyq"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_etic2"]
 atlas = ExtResource("2_wfafv")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_8ip0x"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hv7ci"]
 atlas = ExtResource("2_wfafv")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lfnwy"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ka17"]
 atlas = ExtResource("2_wfafv")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_bvvlp"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_c03qt"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_kh2iy")
+"texture": SubResource("AtlasTexture_ssc3n")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_4rbyq")
+"texture": SubResource("AtlasTexture_etic2")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8ip0x")
+"texture": SubResource("AtlasTexture_hv7ci")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_lfnwy")
+"texture": SubResource("AtlasTexture_4ka17")
 }],
 "loop": true,
 "name": &"default",
-"speed": 7.0
+"speed": 5.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_g4eu2"]
-radius = 6.0
-height = 38.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_43emn"]
+radius = 4.0
+height = 14.0
 
-[node name="portal" type="Area2D"]
-scale = Vector2(0.589626, 0.495286)
-collision_mask = 2
+[node name="Portal" type="CharacterBody2D"]
 script = ExtResource("1_g43o2")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(-1, 4)
-rotation = -6.28319
-scale = Vector2(1.56398, 1.56398)
-sprite_frames = SubResource("SpriteFrames_bvvlp")
-autoplay = "default"
-frame_progress = 0.300334
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(0.854299, 0.854299)
+sprite_frames = SubResource("SpriteFrames_c03qt")
 
-[node name="killzone" parent="." instance=ExtResource("3_kbeyv")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-scale = Vector2(1, 1)
-shape = SubResource("CapsuleShape2D_g4eu2")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_43emn")

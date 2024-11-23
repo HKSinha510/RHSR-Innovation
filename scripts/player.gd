@@ -1,8 +1,11 @@
 extends CharacterBody2D
 
-
+@onready var animated_sprite = $AnimatedSprite2D
 const SPEED = 100.0
 const JUMP_VELOCITY = -250.0
+
+# Add this variable to track last direction
+var facing_left: bool = false
 
 func _ready() -> void:
 	print("Player: Starting setup...")
@@ -21,11 +24,15 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction:
+		# Update facing direction only when actually moving
+		facing_left = (direction < 0)
+		animated_sprite.flip_h = facing_left
 		velocity.x = direction * SPEED
 	else:
+		# When stopping, keep the last facing direction
+		animated_sprite.flip_h = facing_left
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()

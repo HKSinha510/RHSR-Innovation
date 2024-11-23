@@ -1,11 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://b438y5selrt3i"]
+[gd_scene load_steps=14 format=3 uid="uid://b438y5selrt3i"]
 
 [ext_resource type="PackedScene" uid="uid://lea41xub7f4x" path="res://scene/player.tscn" id="1_4m00h"]
 [ext_resource type="Script" path="res://scripts/game.gd" id="1_qsenl"]
+[ext_resource type="Script" path="res://scripts/game_manager.gd" id="2_a0bll"]
 [ext_resource type="Texture2D" uid="uid://bpwwhsag718jy" path="res://assets/world_tileset.png" id="2_w3xxy"]
 [ext_resource type="PackedScene" uid="uid://bfdclbnqmgaaa" path="res://scene/portal.tscn" id="2_yojma"]
 [ext_resource type="PackedScene" uid="uid://bcjl6hvkrb2s8" path="res://scene/coin.tscn" id="3_nutyw"]
+[ext_resource type="FontFile" uid="uid://coqu1d32gmv57" path="res://assets/PixelGameFont.ttf" id="3_sd4g6"]
 [ext_resource type="PackedScene" uid="uid://dkejwrs141o0o" path="res://scene/killzone.tscn" id="5_taoy1"]
+[ext_resource type="FontFile" uid="uid://dl5x68rxvu6iq" path="res://assets/PixelOperator8.ttf" id="7_jfqm6"]
+[ext_resource type="AudioStream" uid="uid://sdsln07kf0hu" path="res://assets/retro-game-arcade-236133.mp3" id="9_44lb0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_d4vxs"]
 texture = ExtResource("2_w3xxy")
@@ -179,6 +183,22 @@ sources/0 = SubResource("TileSetAtlasSource_d4vxs")
 position = Vector2(2, 1)
 script = ExtResource("1_qsenl")
 
+[node name="GameManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_a0bll")
+
+[node name="texxt" type="Node" parent="."]
+
+[node name="Label" type="Label" parent="texxt"]
+offset_left = 56.0
+offset_top = -56.0
+offset_right = 246.0
+offset_bottom = -9.0
+theme_override_colors/font_color = Color(0.080131, 0.27599, 0.426591, 1)
+theme_override_fonts/font = ExtResource("7_jfqm6")
+text = "<- -> to move
+"
+
 [node name="Player" parent="." instance=ExtResource("1_4m00h")]
 position = Vector2(116, 24)
 
@@ -191,10 +211,10 @@ limit_smoothed = true
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_uxtkn")
 format = 2
-layer_0/tile_data = PackedInt32Array(131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 65548, 0, 0, 65549, 0, 0, 13, 0, 0, 12, 0, 0, -65523, 0, 0, -65522, 0, 0, -131058, 0, 0, -65521, 0, 0, 15, 0, 0, 14, 0, 0, -131057, 0, 0, -196592, 0, 0, -196591, 0, 0, -262126, 0, 0, -327661, 0, 0, -327660, 0, 0, -327656, 0, 0, -327652, 0, 0, -327648, 0, 0, -327659, 589824, 0, -327655, 589824, 1, -327651, 589824, 0, -327658, 655360, 0, -327650, 655360, 0, -327654, 655360, 1, -327657, 720896, 0, -327649, 720896, 0, -327653, 720896, 1, 131115, 0, 1, 131116, 0, 1, 131117, 0, 1, 131118, 0, 1, 131119, 0, 1, 131120, 0, 1, 131125, 0, 1, 131126, 0, 1, 131127, 0, 1, 131128, 0, 1, 131129, 0, 1, 131124, 0, 1, 131123, 0, 1, 131122, 0, 1, 131121, 0, 1, 65547, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 0, 0, 131095, 0, 0, 131096, 0, 0, 131097, 0, 0, 131098, 0, 0, 131099, 0, 0, 131100, 0, 0, 131101, 0, 0, 131102, 0, 0, 131103, 0, 0, 131104, 0, 0, 131105, 0, 0, 131106, 0, 0, 131107, 0, 0, 131108, 0, 0, 131109, 0, 0, 131110, 0, 0, 131111, 0, 0, 131112, 0, 0, 131113, 0, 0, 131114, 0, 0)
+layer_0/tile_data = PackedInt32Array(131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 131084, 0, 0, 131085, 0, 0, 131086, 0, 0, 131087, 0, 0, 131088, 0, 0, 131089, 0, 0, 131090, 0, 0, 131091, 0, 0, 131092, 0, 0, 131093, 0, 0, 131094, 0, 0, 131095, 0, 0, 131096, 0, 0, 131097, 0, 0, 131098, 0, 0, 131099, 0, 0, 131100, 0, 0, 131101, 0, 0, 131102, 0, 0, 131103, 0, 0, 131104, 0, 0, 131105, 0, 0, 131106, 0, 0, 131107, 0, 0, 131108, 0, 0, 131109, 0, 0, 131110, 0, 0, 131111, 0, 0, 131112, 0, 0, 131113, 0, 0, 131114, 0, 0, 196611, 0, 1, 262147, 0, 1, 327683, 0, 1, 131075, 0, 0, 196612, 0, 1, 196613, 0, 1, 262150, 0, 1, 262151, 0, 1, 327688, 0, 1, 327689, 0, 1, 327690, 0, 1, 196614, 0, 1, 196615, 0, 1, 196616, 0, 1, 196617, 0, 1, 196618, 0, 1, 196619, 0, 1, 196620, 0, 1, 196621, 0, 1, 196622, 0, 1, 196623, 0, 1, 196624, 0, 1, 196625, 0, 1, 196634, 0, 1, 196635, 0, 1, 196636, 0, 1, 196637, 0, 1, 196638, 0, 1, 196639, 0, 1, 196640, 0, 1, 196641, 0, 1, 196642, 0, 1, 196643, 0, 1, 196644, 0, 1, 196645, 0, 1, 196646, 0, 1, 196647, 0, 1, 196648, 0, 1, 196649, 0, 1, 196650, 0, 1, 262148, 0, 1, 262149, 0, 1, 262152, 0, 1, 262153, 0, 1, 262154, 0, 1, 262155, 0, 1, 262156, 0, 1, 262157, 0, 1, 262158, 0, 1, 262159, 0, 1, 262160, 0, 1, 262171, 0, 1, 262172, 0, 1, 262173, 0, 1, 262174, 0, 1, 262175, 0, 1, 262176, 0, 1, 262177, 0, 1, 262178, 0, 1, 262179, 0, 1, 262180, 0, 1, 262181, 0, 1, 262182, 0, 1, 262183, 0, 1, 262184, 0, 1, 262185, 0, 1, 262186, 0, 1, 327684, 0, 1, 327685, 0, 1, 327686, 0, 1, 327687, 0, 1, 327691, 0, 1, 327692, 0, 1, 327693, 0, 1, 327694, 0, 1, 327695, 0, 1, 327696, 0, 1, 327697, 0, 1, 327698, 0, 1, 327699, 0, 1, 327700, 0, 1, 327701, 0, 1, 327702, 0, 1, 327703, 0, 1, 327704, 0, 1, 327705, 0, 1, 327706, 0, 1, 327707, 0, 1, 327708, 0, 1, 327709, 0, 1, 327710, 0, 1, 327711, 0, 1, 327712, 0, 1, 327713, 0, 1, 327714, 0, 1, 327715, 0, 1, 327716, 0, 1, 327717, 0, 1, 327718, 0, 1, 327719, 0, 1, 327720, 0, 1, 327721, 0, 1, 327722, 0, 1)
 
 [node name="portal" parent="." instance=ExtResource("2_yojma")]
-position = Vector2(392, 21)
+position = Vector2(313, 66)
 
 [node name="killzone" parent="." instance=ExtResource("5_taoy1")]
 
@@ -212,3 +232,24 @@ position = Vector2(202, -6)
 
 [node name="coin3" parent="coil" instance=ExtResource("3_nutyw")]
 position = Vector2(298, -71)
+
+[node name="BG Music" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(965, 24)
+stream = ExtResource("9_44lb0")
+autoplay = true
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="UI"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 25.0
+offset_right = -25.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_sd4g6")
+theme_override_font_sizes/font_size = 40
+text = "Score: 0"
