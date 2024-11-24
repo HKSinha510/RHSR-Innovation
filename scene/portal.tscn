@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://bfdclbnqmgaaa"]
+[gd_scene load_steps=10 format=3 uid="uid://bfdclbnqmgaaa"]
 
 [ext_resource type="Script" path="res://scripts/portal.gd" id="1_g43o2"]
 [ext_resource type="Texture2D" uid="uid://chctvm7uloq4o" path="res://assets/shadqow.png" id="2_wfafv"]
+[ext_resource type="PackedScene" uid="uid://dkejwrs141o0o" path="res://scene/killzone.tscn" id="3_xkcd5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ssc3n"]
 atlas = ExtResource("2_wfafv")
@@ -36,7 +37,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_43emn"]
@@ -49,7 +50,14 @@ script = ExtResource("1_g43o2")
 [node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(0.854299, 0.854299)
 sprite_frames = SubResource("SpriteFrames_c03qt")
+autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_43emn")
+
+[node name="killzone" parent="." instance=ExtResource("3_xkcd5")]
+position = Vector2(0, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("CapsuleShape2D_43emn")
