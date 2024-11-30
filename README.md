@@ -10,6 +10,9 @@ As per the theme of our game i.e "you are your own enemy " we have named our gam
 
 Enemigo is a single character game in which character's own shadow acts as it's enemy. When the character comes in contact of the shadow, game ends there and it is restarted.
 
+## Release
+1. [Windows/linux](https://github.com/HKSinha510/RHSR-Innovation/releases/)
+2. [itch.io](https://hksinha510.itch.io/enemigo)
 
 ## Team Members
 - Hardik Kumar Sinha
