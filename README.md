@@ -1,3 +1,9 @@
+<p>
+    <img src="assets/lomgo.png", title="logo">
+</p>
+
+
+
 # Counterspell Hackathon
 
 ## Enemigo
